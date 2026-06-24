@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U1 총동문회</title>
+    <!-- Pretendard 웹 폰트 로드 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        /* CSS: 컬러 팔레트 및 기본 설정 */
+        :root {
+            --u1-navy: #1A2849;   /* U1 Navy */
+            --u1-red: #A6192E;    /* U1 Red */
+            --u1-cream: #FDFBF7;  /* U1 Cream */
+            --text-dark: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--u1-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* 헤더 디자인 */
+        header {
+            background-color: var(--u1-navy);
+            color: white;
+            padding: 1.2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--u1-red);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--u1-cream);
+            text-decoration: underline;
+            text-decoration-color: var(--u1-red);
+            text-decoration-thickness: 3px;
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            background-color: var(--u1-navy);
+            color: var(--u1-cream);
+            text-align: center;
+            padding: 5rem 2rem;
+            border-bottom: 5px solid var(--u1-red);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* 공통 섹션 스타일 */
+        .section-container {
+            padding: 4rem 10%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--u1-navy);
+            border-left: 5px solid var(--u1-red);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* U1 NOW 소식지 그리드 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: white;
+            border: 1px solid #E0E0E0;
+            border-top: 4px solid var(--u1-navy);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--u1-red);
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* 발전기금/기부금 섹션 */
+        .donation-box {
+            background-color: white;
+            border: 2px solid var(--u1-navy);
+            padding: 3rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .donation-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .donation-item {
+            text-align: left;
+            background-color: var(--u1-cream);
+            padding: 1.5rem;
+            border-left: 4px solid var(--u1-red);
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--u1-red);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #8A1525;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #111;
+            color: #888;
+            padding: 2rem 10%;
+            font-size: 0.9rem;
+        }
+
+        .privacy-notice {
+            color: #BBB;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 영역 -->
+    <header>
+        <a href="#" class="logo"><span>U1</span> 총동문회</a>
+        <nav>
+            <a href="#news">U1 NOW (학교소식)</a>
+            <a href="#donation">발전기금 안내</a>
+            <a href="#association">동문회 가입</a>
+        </nav>
+    </header>
+
+    <!-- 히어로 영역 -->
+    <div class="hero">
+        <h1>U1의 자부심, 다시 하나 되는 동문회</h1>
+        <p>2026년 U1 총동문회 공식 출범을 위한 동문 여러분의 참여를 기다립니다.</p>
+    </div>
+
+    <!-- 학교소식지 (U1 NOW) 영역 -->
+    <section id="news" class="section-container">
+        <h2 class="section-title">U1 NOW 뉴스레터</h2>
+        <div class="news-grid" id="news-container">
+            <!-- JS로 동적 렌더링 됨 -->
+        </div>
+    </section>
+
+    <!-- 기부금 및 동문회비 영역 -->
+    <section id="donation" class="section-container">
+        <h2 class="section-title">발전기금 및 동문회비 납부 안내</h2>
+        <div class="donation-box">
+            <h3>U1의 미래와 후배들을 위한 뜻깊은 동행</h3>
+            <p style="margin-top: 1rem; color: #555;">모금된 기부금은 국가장학 및 지역인재 양성을 위한 장학금과 동문회 구축 데이터베이스 운영에 투명하게 사용됩니다.</p>
+            
+            <div class="donation-info">
+                <div class="donation-item">
+                    <h4 style="color: var(--u1-navy); margin-bottom: 0.5rem;">총동문회 입회비 / 연회비</h4>
+                    <p><strong>계좌:</strong> U1은행 123-456-7890</p>
+                    <p><strong>예금주:</strong> U1총동문회</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #666;">* 자격요건 검증 후 입회 승인</p>
+                </div>
+                <div class="donation-item">
+                    <h4 style="color: var(--u1-red); margin-bottom: 0.5rem;">대학 발전기금 (장학금)</h4>
+                    <p><strong>계좌:</strong> U1은행 098-765-4321</p>
+                    <p><strong>예금주:</strong> 유원대학교</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #666;">* 연말정산 기부금 영수증 발급 가능</p>
+                </div>
+            </div>
+
+            <button class="btn" onclick="alert('모바일 동의 시스템으로 이동합니다.')">기부 약정 및 동문가입 (모바일 동의)</button>
+        </div>
+    </section>
+
+    <!-- 푸터 영역 -->
+    <footer>
+        <p>충청북도 영동군 영동읍 대학로 310 유원대학교 총동문회 준비위원회</p>
+        <p class="privacy-notice">
+            ※ 본 동문회는 「개인정보 보호법」 제15조 및 제22조에 의거하여 동문 데이터베이스 구축 및 운영을 위한 개인정보를 엄격히 관리합니다. 수집된 정보는 임원 선임 및 소식지 발송 목적 외에 절대 사용되지 않습니다.
+        </p>
+    </footer>
+
+    <!-- JavaScript: U1 NOW 소식지 데이터 렌더링 -->
+    <script>
+        // U1 NOW 더미 데이터 (실제 데이터로 교체 가능)
+        const newsData = [
+            {
+                date: '2026. 06. 20',
+                title: '2026학년도 하계 피어스 컬리지(Pierce College) 어학연수단 출정식',
+                summary: '유원대학교 재학생 30명이 참여하는 글로벌 어학연수 프로그램이 성공적으로 시작되었습니다.'
+            },
+            {
+                date: '2026. 05. 15',
+                title: 'U1 총동문회 재건립 추진위원회 공식 발족',
+                summary: '모바일 동의 시스템을 도입한 대규모 동문 데이터베이스 구축 사업이 본격화됩니다.'
+            },
+            {
+                date: '2026. 04. 02',
+                title: '지역인재 및 다문화 멘토링 장학사업 확대 개편',
+                summary: '국가장학 체제와 연계하여 재학생들을 위한 사회봉사 및 멘토링 지원을 대폭 강화합니다.'
+            }
+        ];
+
+        // DOM 로드 완료 시 실행
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsContainer = document.getElementById('news-container');
+            
+            // 데이터 배열을 순회하며 HTML 요소 생성
+            newsData.forEach(news => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.innerHTML = `
+                    <span class="news-date">${news.date}</span>
+                    <h3 class="news-title">${news.title}</h3>
+                    <p style="font-size: 0.95rem; color: #555;">${news.summary}</p>
+                `;
+                newsContainer.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>
